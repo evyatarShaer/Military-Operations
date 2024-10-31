@@ -1,0 +1,49 @@
+.missionCard {
+    height: 100px;
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    background-color: orange;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonsDiv {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+#deleteButton {
+    background-color: red;
+    height: 50%;
+    color: white;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#deleteButton:hover {
+    background-color: darkred;
+    transition: background-color 0.3s ease;
+}
+
+#editButton {
+    background-color: blue;
+    height: 50%;
+    color: white;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#editButton:hover {
+    background-color: darkblue;
+    transition: background-color 0.3s ease;
+}
