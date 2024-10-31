@@ -1,19 +1,7 @@
 export interface MissionModel {
-  id_?: string;
+  _id?: string;
   name: string;
-  status: Status;
-  priority: Priority;
+  status: "Pending" | "Completed" | "In Progress";
+  priority: "Low" | "High" | "Medium";
   description: string;
-}
-
-enum Status {
-  Pending = "Pending",
-  InProgress = "In Progress",
-  Completed = "Completed",
-}
-
-enum Priority {
-  Low = "Low",
-  Medium = "Medium",
-  High = "High",
 }

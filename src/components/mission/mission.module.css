@@ -3,11 +3,22 @@
     width: 100%;
     margin: 5px;
     padding: 10px;
-    background-color: orange;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+#Pending {
+    background-color: #910000;
+}
+
+#inProgress {
+    background-color: #BE7D00;
+}
+
+#complated {
+    background-color: #009114;
 }
 
 .buttonsDiv {

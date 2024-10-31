@@ -8,23 +8,28 @@ import Create from "./components/create/Create";
 function App() {
   const [missions, setMissions] = useState<MissionModel[]>([]);
 
+  const loadMissions = async () => {
+    try {
+      const fetchedMissions = await fetchMissions();
+      setMissions(fetchedMissions);
+    } catch {
+      throw new Error("Failed to load missions. Please try again.");
+    }
+  };
+
   useEffect(() => {
-    const loadTodos = async () => {
-      try {
-        const fetchedTodos = await fetchMissions();
-        setMissions(fetchedTodos);
-      } catch {
-        throw new Error("Failed to load todos. Please try again.");
-      }
-    };
-    loadTodos();
-  }, []);
+    loadMissions();
+  }, []); 
+
+  const handleMissionCreated = () => {
+    loadMissions();
+  };
 
   const handleDeleteMission = async (id: string) => {
     try {
       await deleteMission(id);
       setMissions((prevMission) =>
-        prevMission.filter((todo) => todo.id_ !== id)
+        prevMission.filter((mission) => mission._id !== id)
       );
     } catch {
       throw new Error("Failed to delete mission, (from handele)");
@@ -35,7 +40,7 @@ function App() {
     <div className={styles.app}>
       <h1 className={styles.h1}>Military Operations Dashboard</h1>
       <div className={styles.createArea}>
-        <Create />
+        <Create onMissionCreated={handleMissionCreated}/>
       </div>
       <div>
         <h3 className={styles.h3}>Missions</h3>
@@ -43,8 +48,8 @@ function App() {
       <div className={styles.missionsArea}>
         {missions.map((mission) => (
           <Mission
-            key={mission.id_}
-            id={mission.id_}
+            key={mission._id}
+            id={mission._id}
             name={mission.name}
             status={mission.status}
             priority={mission.priority}

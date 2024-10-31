@@ -1,7 +1,6 @@
 .createCard {
     display: flex;
     flex-direction: column;
-    /* align-items: space-around; */
     justify-content: space-around;
     background-color: #447F4D;
     border-radius: 5px;

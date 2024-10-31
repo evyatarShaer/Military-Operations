@@ -12,12 +12,7 @@ export const fetchMissions = async (): Promise<MissionModel[]> => {
   }
 };
 
-export const createMission = async ({
-  name,
-  status,
-  priority,
-  description,
-}: MissionModel): Promise<void> => {
+export const createMission = async ( name: string, status: string, priority: string, description: string): Promise<void> => {
   try {
     await axios.post(BASE_URL, {
       name: name,
@@ -33,13 +28,13 @@ export const createMission = async ({
 
 export const updateMission = async (mission: MissionModel): Promise<void> => {
   try {
-    await axios.put(`${BASE_URL}/:${mission.id_}`, {
+    await axios.put(`${BASE_URL}/:${mission._id}`, {
       name: mission.name,
       status: mission.status,
       priority: mission.priority,
       description: mission.description,
     });
-    console.log(`id: ${mission.id_} updated`);
+    console.log(`id: ${mission._id} updated`);
   } catch {
     throw new Error("Failed to update mission");
   }
